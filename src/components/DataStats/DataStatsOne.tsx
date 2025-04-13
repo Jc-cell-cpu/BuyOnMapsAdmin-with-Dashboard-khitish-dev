@@ -1,7 +1,8 @@
 // components/DataStatsOne.tsx
 import React from 'react';
 import { dataStats } from '@/types/dataStats';
-import { fetchAllAppointments, fetchAllPosts, fetchAllUsers } from '@/app/dashboard/API_Calls/Dashboard_Apis';
+import { fetchAllAppointments, fetchAllPosts, fetchAllUsers } from '@/app/(features)/dashboard/API_Calls/Dashboard_Apis';
+
 
 // Format number to match UI (e.g., 3456 -> "3.456K", 26 -> "26")
 const formatNumber = (value: number): string => {

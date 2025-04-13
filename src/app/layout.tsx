@@ -11,20 +11,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [loading, setLoading] = useState<boolean>(true);
 
-  // const pathname = usePathname();
-
-  useEffect(() => {
-    setTimeout(() => setLoading(false), 1000);
-  }, []);
 
   return (
     <html lang="en">
       <body suppressHydrationWarning={true}>
-        <GradientBackground />
-        {loading ? <Loader /> : children}
+        {children}
       </body>
     </html>
   );

@@ -1,14 +1,16 @@
 "use server";
 
 import { cookies } from "next/headers";
-
 import { format } from "date-fns";
+
+const BASE_URL =
+  process.env.API_BASE_URL || "https://buyonmaps-api.onrender.com"; // Fallback for safety
 
 export async function generateReport(
   startDate: Date,
   endDate: Date,
   isSubscriber: boolean,
-  isUser: boolean
+  isUser: boolean,
 ) {
   const token = cookies().get("authToken")?.value;
   if (!token) {
@@ -19,16 +21,14 @@ export async function generateReport(
   const formattedStartDate = format(startDate, "yyyy-MM-dd");
   const formattedEndDate = format(endDate, "yyyy-MM-dd");
 
-  let url = ''
+  let url = "";
   console.log(isUser);
-  
+
   if (!isUser) {
     // url = `http://localhost:8080/api/v1/admin/report/getUserReport?fromDate=${formattedStartDate}&toDate=${formattedEndDate}&isSubscribe=${isSubscriber}`;
-    url = `https://buyonmaps-api.onrender.com/api/v1/admin/report/getUserReport?fromDate=${formattedStartDate}&toDate=${formattedEndDate}&isSubscribe=${isSubscriber}`;
-
-  }
-  else {
-    url = `https://buyonmaps-api.onrender.com/api/v1/admin/report/getCategoryWiseReport?fromDate=${formattedStartDate}&toDate=${formattedEndDate}`;
+    url = `${BASE_URL}/api/v1/admin/report/getUserReport?fromDate=${formattedStartDate}&toDate=${formattedEndDate}&isSubscribe=${isSubscriber}`;
+  } else {
+    url = `${BASE_URL}/api/v1/admin/report/getCategoryWiseReport?fromDate=${formattedStartDate}&toDate=${formattedEndDate}`;
   }
 
   try {

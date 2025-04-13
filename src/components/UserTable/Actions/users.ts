@@ -3,6 +3,9 @@
 import { UserDetails } from "@/types/api";
 import { cookies } from "next/headers";
 
+const BASE_URL =
+  process.env.API_BASE_URL || "https://buyonmaps-api.onrender.com"; // Fallback for safety
+
 export async function fetchUsers(page: number = 1) {
   try {
     const cookieStore = cookies();
@@ -13,7 +16,7 @@ export async function fetchUsers(page: number = 1) {
     }
 
     const response = await fetch(
-      `https://buyonmaps-api.onrender.com/api/v1/admin/auth/users?page=${page}&limit=10`,
+      `${BASE_URL}/api/v1/admin/auth/users?page=${page}&limit=10`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -45,14 +48,11 @@ export async function getUserDetails(userId: string): Promise<UserDetails> {
     throw new Error("Authentication token not found");
   }
 
-  const response = await fetch(
-    `https://buyonmaps-api.onrender.com/api/v1/admin/auth/user/${userId}`,
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
+  const response = await fetch(`${BASE_URL}/api/v1/admin/auth/user/${userId}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
     },
-  );
+  });
 
   if (!response.ok) {
     throw new Error("Failed to fetch user details");
@@ -69,7 +69,7 @@ export async function toggleUserStatus(userId: string) {
     throw new Error("Authentication token not found");
   }
 
-  const url = `https://buyonmaps-api.onrender.com/api/v1/admin/auth/deactivate/${userId}`;
+  const url = `${BASE_URL}/api/v1/admin/auth/deactivate/${userId}`;
 
   const response = await fetch(url, {
     method: "PUT",

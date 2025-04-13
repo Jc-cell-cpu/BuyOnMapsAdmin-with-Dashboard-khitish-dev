@@ -1,6 +1,9 @@
 "use server";
 import { cookies } from "next/headers";
 
+const BASE_URL =
+  process.env.API_BASE_URL || "https://buyonmaps-api.onrender.com"; // Fallback for safety
+
 export async function updateCategory(
   categoryId: string,
   data: { name: string; imageUrl: string | null },
@@ -15,7 +18,7 @@ export async function updateCategory(
   try {
     console.log(`Updating category ${categoryId} with data:`, data);
     const response = await fetch(
-      `https://buyonmaps-api.onrender.com/api/v1/admin/categories/edit/${categoryId}`,
+      `${BASE_URL}/api/v1/admin/categories/edit/${categoryId}`,
       {
         method: "PUT",
         headers: {
@@ -58,16 +61,13 @@ export async function uploadImage(formData: FormData): Promise<string> {
 
   try {
     console.log("Uploading image...");
-    const response = await fetch(
-      "https://buyonmaps-api.onrender.com/api/v1/upload/image",
-      {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-        body: formData,
+    const response = await fetch(`${BASE_URL}/api/v1/upload/image`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
       },
-    );
+      body: formData,
+    });
 
     if (!response.ok) {
       const errorText = await response.text();

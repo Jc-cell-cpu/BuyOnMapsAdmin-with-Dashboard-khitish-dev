@@ -3,7 +3,7 @@
 import { cookies } from "next/headers";
 
 const BASE_URL =
-  process.env.NEXT_PUBLIC_API_BASE_URL || "https://buyonmaps-api.onrender.com"; // Fallback for safety
+  process.env.API_BASE_URL || "https://buyonmaps-api.onrender.com"; // Fallback for safety
 
 interface AuthResponse {
   success: boolean;

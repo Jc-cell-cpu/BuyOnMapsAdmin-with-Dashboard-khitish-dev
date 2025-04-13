@@ -3,13 +3,16 @@
 import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
 
+const BASE_URL =
+  process.env.API_BASE_URL || "https://buyonmaps-api.onrender.com"; // Fallback for safety
+
 export async function viewDetails(data: any) {
   // Implement your database update logic here
   console.log(`Approving listing ${data?._id}`);
   // revalidatePath("/admin/listings");
   // return { success: true };
   const cookieStore = cookies();
-  const url = `https://buyonmaps-api.onrender.com/api/v1/admin/postDetails?productId=${data._id}&categoryId=${data?.categoryId}`;
+  const url = `${BASE_URL}/api/v1/admin/postDetails?productId=${data._id}&categoryId=${data?.categoryId}`;
   const token = cookieStore.get("authToken")?.value;
 
   try {
@@ -41,7 +44,7 @@ export async function approveListing(data: any) {
   // return { success: true };
 
   const cookieStore = cookies();
-  const url = `https://buyonmaps-api.onrender.com/api/v1/admin/updateStatus?productId=${data._id}&categoryId=${data?.categoryId}&productStatus=1`;
+  const url = `${BASE_URL}/api/v1/admin/updateStatus?productId=${data._id}&categoryId=${data?.categoryId}&productStatus=1`;
   const token = cookieStore.get("authToken")?.value;
 
   try {
@@ -74,7 +77,7 @@ export async function rejectListing(data: any) {
   // return { success: true };
 
   const cookieStore = cookies();
-  const url = `https://buyonmaps-api.onrender.com/api/v1/admin/updateStatus?productId=${data._id}&categoryId=${data?.categoryId}&productStatus=2`;
+  const url = `${BASE_URL}/api/v1/admin/updateStatus?productId=${data._id}&categoryId=${data?.categoryId}&productStatus=2`;
   const token = cookieStore.get("authToken")?.value;
 
   try {
@@ -107,7 +110,7 @@ export async function deleteListing(data: any) {
   // return { success: true };
 
   const cookieStore = cookies();
-  const url = `https://buyonmaps-api.onrender.com/api/v1/admin/deletePost?productId=${data._id}&categoryId=${data?.categoryId}`;
+  const url = `${BASE_URL}/api/v1/admin/deletePost?productId=${data._id}&categoryId=${data?.categoryId}`;
   const token = cookieStore.get("authToken")?.value;
 
   try {
@@ -142,7 +145,7 @@ export async function updateListing(id: string, data: any) {
 
 export const fetchListings = async (page: number, limit: number) => {
   const cookieStore = cookies();
-  const url = `https://buyonmaps-api.onrender.com/api/v1/admin/allPosts?page=${page}&limit=${limit}`;
+  const url = `${BASE_URL}/api/v1/admin/allPosts?page=${page}&limit=${limit}`;
   const token = cookieStore.get("authToken")?.value;
 
   try {

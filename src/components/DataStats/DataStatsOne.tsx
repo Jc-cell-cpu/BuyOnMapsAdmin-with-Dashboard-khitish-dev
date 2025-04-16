@@ -1,6 +1,5 @@
 // components/DataStatsOne.tsx
 import React from 'react';
-import { dataStats } from '@/types/dataStats';
 import { fetchAllAppointments, fetchAllPosts, fetchAllUsers } from '@/app/(features)/dashboard/API_Calls/Dashboard_Apis';
 
 
@@ -21,7 +20,7 @@ interface StatItem {
   growthRate?: number | string; // Allow string for '--' or other placeholders
 }
 
-const DataStatsOne: React.FC<dataStats> = async () => {
+const DataStatsOne: React.FC<{}> = async () => {
   // Fetch data from APIs
   let totalUsers = 0;
   let totalPosts = 0;

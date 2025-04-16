@@ -7,7 +7,6 @@ import ChartTwo from "@/components/Charts/ChartTwo"
 import ChartThree from "@/components/Charts/ChartThree"
 import DefaultLayout from "@/components/Layouts/DefaultLaout"
 import TableOne from "@/components/Tables/TableOne"
-import ChatCard from "@/components/Chat/ChatCard"
 import { fetchAllAppointments, fetchAllPosts, fetchAllUsers } from "./API_Calls/Dashboard_Apis"
 
 const Dashboard: React.FC = async () => {

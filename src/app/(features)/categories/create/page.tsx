@@ -2,9 +2,7 @@
 
 import DefaultLayout from "@/components/Layouts/DefaultLaout";
 import React, { useState, ChangeEvent, FormEvent } from "react";
-import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
-import ButtonDefault from "@/components/Buttons/ButtonDefault";
-import InputGroup from "@/components/FormElements/InputGroup";
+
 
 const CreateCategory: React.FC = () => {
   // State types
@@ -125,7 +123,7 @@ const CreateCategory: React.FC = () => {
 
   return (
     <DefaultLayout>
-      <Breadcrumb pageName="Create Categories" />
+      {/* <Breadcrumb pageName="Create Categories" /> */}
       <div>
         <div className="flex flex-col gap-9">
           {/* Contact Form */}
@@ -171,9 +169,8 @@ const CreateCategory: React.FC = () => {
                         setSelectedOption(e.target.value);
                         changeTextColor();
                       }}
-                      className={`relative z-20 w-full appearance-none rounded-[7px] border border-stroke bg-transparent px-5.5 py-3 outline-none transition focus:border-primary active:border-primary dark:border-dark-3 dark:bg-dark-2 dark:focus:border-primary ${
-                        isOptionSelected ? "text-dark dark:text-white" : ""
-                      }`}
+                      className={`relative z-20 w-full appearance-none rounded-[7px] border border-stroke bg-transparent px-5.5 py-3 outline-none transition focus:border-primary active:border-primary dark:border-dark-3 dark:bg-dark-2 dark:focus:border-primary ${isOptionSelected ? "text-dark dark:text-white" : ""
+                        }`}
                     >
                       <option value="" disabled className="text-dark-6">
                         Select your form

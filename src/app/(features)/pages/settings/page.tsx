@@ -1,4 +1,4 @@
-import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
+// import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 
 import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLaout";
@@ -13,7 +13,7 @@ const Settings = () => {
   return (
     <DefaultLayout>
       <div className="mx-auto w-full max-w-[1080px]">
-        <Breadcrumb pageName="Settings" />
+        {/* <Breadcrumb pageName="Settings" /> */}
 
         <SettingBoxes />
       </div>

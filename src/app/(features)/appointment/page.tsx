@@ -22,6 +22,7 @@ import DefaultLayout from "@/components/Layouts/DefaultLaout"
 import { fetchAppointments, getCounts } from "./appointment"
 import { Loader } from "@/components/ui/loader"
 import { useRouter } from "next/navigation"
+import dayjs from "dayjs"
 
 // Types for our appointments
 type AppointmentStatus = "" | "booked" | "cancelled" | "rebooked"
@@ -214,11 +215,11 @@ export default function AppointmentsList() {
                                             <div className="flex items-center space-x-4 text-sm text-muted-foreground">
                                                 <div className="flex items-center space-x-1">
                                                     <Calendar className="w-4 h-4" />
-                                                    <span>{appointment?.startTime}</span>
+                                                    <span>{dayjs(appointment?.startTime).format('DD-MMM-YYYY HH-MM ')}</span>
                                                 </div>
                                                 <div className="flex items-center space-x-1">
                                                     <Clock className="w-4 h-4" />
-                                                    <span>{appointment?.endTime}</span>
+                                                    <span>{dayjs(appointment?.endTime).format('DD-MMM-YYYY HH-MM ')}</span>
                                                 </div>
                                             </div>
                                         </div>

@@ -50,21 +50,21 @@ const menuGroups = [
         label: "Listing Management",
         route: "/listing",
       },
-      {
-        icon: <AiOutlineRadiusSetting size={24} />,
-        label: "Radius Management",
-        route: "/radius",
-      },
+      // {
+      //   icon: <AiOutlineRadiusSetting size={24} />,
+      //   label: "Radius Management",
+      //   route: "/radius",
+      // },
       {
         icon: <GiKnightBanner size={24} />,
         label: "Banners",
         route: "/banner",
       },
-      {
-        icon: <GrTransaction size={24} />,
-        label: "Transaction Management",
-        route: "/transaction",
-      },
+      // {
+      //   icon: <GrTransaction size={24} />,
+      //   label: "Transaction Management",
+      //   route: "/transaction",
+      // },
       {
         icon: <TbBrandBooking size={24} />,
         label: "Booking Management",

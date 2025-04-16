@@ -72,26 +72,26 @@ const menuGroups = [
       },
     ],
   },
-  {
-    name: "OTHERS",
-    menuItems: [
-      {
-        icon: <MdOutlineAccountCircle size={24} />,
-        label: "Profile",
-        route: "/profile",
-      },
-      // {
-      //   icon: <MdSettings size={24} />,
-      //   label: "Settings",
-      //   route: "/settings",
-      // },
-      // {
-      //   icon: <FiLogOut size={24} />,
-      //   label: "Logout",
-      //   route: "/logout",
-      // },
-    ],
-  },
+  // {
+  //   name: "OTHERS",
+  //   menuItems: [
+  //   {
+  //     icon: <MdOutlineAccountCircle size={24} />,
+  //     label: "Profile",
+  //     route: "/profile",
+  //   },
+  // {
+  //   icon: <MdSettings size={24} />,
+  //   label: "Settings",
+  //   route: "/settings",
+  // },
+  // {
+  //   icon: <FiLogOut size={24} />,
+  //   label: "Logout",
+  //   route: "/logout",
+  // },
+  //   ],
+  // },
 ];
 
 
